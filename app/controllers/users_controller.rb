@@ -8,21 +8,6 @@ class UsersController < ApplicationController
     end
   end
   
-
-  def update
-    blog = Blog.find(params[:id])
-    blog.update(blog_params)
-
-    render json: blog
-  end
-
-  def destroy
-    blog = Blog.find(params[:id])
-    blog.destroy
-
-    render json: blog
-  end
-
   private
 
   def user_params
