@@ -4,7 +4,7 @@ class BlogBlueprint < Blueprinter::Base
 
   identifier :id
 
-  fields :title, :content
+  fields :title, :content, :cover_image_url
 
   view :normal do
     association :user, blueprint: UserBlueprint, view: :normal

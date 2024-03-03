@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  
   before_action :authenticate_request, except: [:index]
 
   def index
@@ -9,7 +10,7 @@ class BlogsController < ApplicationController
 
   def create 
     blog = @current_user.blogs.new(blog_params)
-    
+
     if blog.save
       render json: BlogBlueprint.render(blog, view: :normal), status: :created
     else
@@ -20,6 +21,6 @@ class BlogsController < ApplicationController
   private 
 
   def blog_params 
-    params.permit(:title, :content)
+    params.permit(:title, :content, :cover_image)
   end
 end
