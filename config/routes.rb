@@ -5,4 +5,8 @@ Rails.application.routes.draw do
     delete 'unlike'
   end
   resources :users, only: [:create]
+
+  scope '/web' do
+    get 'bootstrap', to: 'web#bootstrap'
+  end
 end 
