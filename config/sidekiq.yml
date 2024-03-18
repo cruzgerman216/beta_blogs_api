@@ -1,0 +1,5 @@
+:scheduler:
+  :schedule:
+    monthly_report_summary:
+      cron: "0 0 1 * *"   # Run at midnight on the first day of every month
+      class: "MonthlyReportSummaryJob"

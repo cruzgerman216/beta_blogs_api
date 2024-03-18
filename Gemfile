@@ -7,6 +7,9 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.8"
 gem 'pusher'
 
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+
 # Use sqlite3 as the database for Active Record
 group :production do 
   gem 'pg'
