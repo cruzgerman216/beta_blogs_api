@@ -1,10 +1,12 @@
 class BlogsController < ApplicationController
   
-  before_action :authenticate_request
-
   def index
-    blogs = Blog.all
-    render json: BlogBlueprint.render(blogs, view: :normal, current_user: @current_user)
+    result = BlogService::Base.filter(params)
+    if result.success?
+      render_success(payload: BlogBlueprint.render_as_hash(result.payload, view: :normal, current_user: @current_user), status: :ok)
+    else 
+      render_error(errors: result.errors, status: :unprocessable_entity)
+    end
   end 
 
   def create 
